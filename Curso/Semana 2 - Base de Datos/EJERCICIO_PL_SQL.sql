@@ -1,0 +1,192 @@
+/*
+BLOQUES ANONIMOS: SE LES CONOCE ASI PORQUE NO TIENE NOMBRE Y NO WUEDA GUARDADO EN LA BD, SOLO SE EJECUTA EN EL MOMENTO
+PARTES DE UN BLOQUE ANONIMO
+    -- DECLARACION(DECLARE) -> OPCIONAL: VARIABLES, CONTANTES Y CURSORES
+        DECLARE
+            V_NOMBRE NVARCHAR2(50) := 'ALINE';
+    -- EJECUCION(BEGIN) -> OBLIGATORIA: AQUI ES PONER LAS INSTRUCCIONES QUE QUIERES EJECUTAR
+        BEGIN
+            DBMS_OUTPUT.PUT_LINE('HOLA' || V_NOMBRE)
+        END;
+    -- EXCEPCIONES(EXCEPTION) -> OPCIONAL: PARA MANEJAR ERRORES
+        EXCEPTION
+            WHEN ZERO_DIVIDE THEN
+                DBMS_OUTPUT.PUT_LINE('NO SE PUEDE DIVIDIR ENTRE 0');
+*/
+
+-- BLOQUE ANONIMO
+-- DECLARACION
+DECLARE 
+    V_NOMBRE NVARCHAR2(50) := 'CESAR';
+-- EJECUCION
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('HOLA ' || V_NOMBRE);
+EXCEPTION
+    WHEN ZERO_DIVIDE THEN
+    DBMS_OUTPUT.PUT_LINE('NO SE PUEDE DIVIDIR ENTRE 0');
+END;
+/ -- INDICADOR HASTA AQUÍ SE JECUTA EL BLOQUE
+
+-- USO DE CICLO PL/SQL
+DECLARE
+    LV_VARIABLE NUMBER := 0; -- := -> ASIGNACIÓN
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('VALOR: ' || LV_VARIABLE);
+        LV_VARIABLE := LV_VARIABLE + 1;
+        -- CONDICIÓN (EXIT WHEN LV_VARIABLE = 10)
+        IF LV_VARIABLE = 10
+            THEN EXIT;
+        END IF;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+-- USO CICLO FOR Y LOOP
+DECLARE
+BEGIN
+    --FOR
+    FOR i IN 1..10
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('VALOR DE LA VARIABLE FOR: ' || i);
+        EXIT WHEN i = 6;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+-- USO DE WHILE Y LOOP
+DECLARE 
+    LV_ITERATOR NUMBER := 1;
+BEGIN
+    WHILE LV_ITERATOR <= 6
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('VALOR DEL ITERATOR CON WHILE: ' || LV_ITERATOR);
+        LV_ITERATOR := LV_ITERATOR + 1;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+-- USO DE LOOP Y VARABLES BOOLEANAS
+DECLARE
+    LV_VALIDADOR BOOLEAN := FALSE;
+BEGIN
+    FOR i IN 1..20
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('VALOR DEL ITERATOR: ' || i);
+        IF i = 9 THEN
+            LV_VALIDADOR := TRUE;
+        END IF;
+        EXIT WHEN LV_VALIDADOR;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+
+
+
+-- 1.- Imprimir  en consola tu nombre completo, carrera y estado donde vives
+DECLARE
+    NOMBRE NVARCHAR2(50) := 'CESAR MANUEL MARTINEZ ELIZARRARAZ';
+    CARRERA NVARCHAR2(60) := 'INGENIERIA EN DESARROLLO Y GESTION DE SOFTWARE';
+    ESTADO NVARCHAR2(50) := 'ESTADO DE MEXICO';
+    
+BEGIN
+    DBMS_OUTPUT.PUT_LINE(NOMBRE || ', ' || CARRERA || ', ' || ESTADO);
+END;
+/ -- INDICADOR
+
+
+-- 2.- impimir las tablas de multiplicar del 1 al 10 ejemplo tabla del 1     1*1 = 10
+DECLARE
+BEGIN
+    FOR i IN 1..10
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('--- TABLA DEL ' || i || ' ---');
+        FOR x IN 1..10
+        LOOP
+            DBMS_OUTPUT.PUT_LINE(i || 'x' || x || ' = ' || i*x);
+        END LOOP;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+
+-- 3.-Imprimir solo los numeros pares del 1 al 20
+DECLARE
+BEGIN
+    FOR i IN 1..20
+    LOOP
+        IF MOD(i,2) = 0 THEN 
+            DBMS_OUTPUT.PUT_LINE('NUMERO PAR: ' || i);
+        END IF;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+
+-- 4.- Imprimir la suma acumulada de los primeros 10 numeros 
+-- ejemplo suma acumulada hasta 1:1
+   --                                                  2:3
+   --                                                  3:6
+DECLARE
+    CONTADOR NUMBER := 0;
+    ACUMULABLE NUMBER := 0;
+BEGIN
+    LOOP
+        CONTADOR := CONTADOR + 1;
+        ACUMULABLE := ACUMULABLE + CONTADOR;
+         DBMS_OUTPUT.PUT_LINE('ACUMULABLE: ' || ACUMULABLE);
+        IF CONTADOR = 10 THEN 
+            EXIT;
+        END IF;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+
+-- 5.-Imprime la cuenta regresiva del 10 al 1
+DECLARE
+    CONTADOR NUMBER := 10;
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('CUENTA REGRESIVA: ' || CONTADOR);
+        CONTADOR := CONTADOR - 1;
+        IF CONTADOR = 0 THEN 
+            EXIT;
+        END IF;
+    END LOOP;
+END;
+/ -- INDICADOR
+
+
+-- 6.-Imprime una secuencia numerica de multiplos de 5 hasta el 50
+DECLARE
+    MULTIPLO NUMBER := 5;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- MULTIPLOS DE 5 ---');
+    FOR i IN 1..10
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('- ' || i * MULTIPLO);
+    END LOOP;
+END;
+/ -- INDICADOR
+
+
+-- 7.-Mostrar los primeros 15 numeros de la serie Fibonacci
+DECLARE 
+    FIBONACCI NUMBER := 0;
+    SIGUIENTE NUMBER := 1;
+    TEMPORAL NUMBER;
+    LIMITE NUMBER := 1;
+BEGIN
+    WHILE LIMITE <= 15 LOOP
+        
+        TEMPORAL := FIBONACCI + SIGUIENTE;
+        FIBONACCI := SIGUIENTE;
+        SIGUIENTE := TEMPORAL;
+        DBMS_OUTPUT.PUT_LINE('CICLO ' || LIMITE || ': ' || FIBONACCI);
+        
+        LIMITE := LIMITE + 1;
+    END LOOP;
+END;
+/ -- INDICADOR
