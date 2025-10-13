@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Editar Videojuego</h2>
+        </div>
+        <div class="card-body">
+            <th>Ingresa los nuevos datos para el videojuego</th>
+            <!-- ngModel: es una directiva en ANgular que proporciona en enlace bidireccional entre elementos de un formulario HTML-->
+            <form>
+                <!-- ID -->
+                <div class="mb-3 d-none">
+                    <label for="idVideojuego" class="form-label">ID VIDEOJUEGO</label>
+                    <input type="number" class="form-control" name="idVideojuego" id="idVideojuego" placeholder="Ej. 1, 30, 2000"
+                        [(ngModel)]="vjuego.idVideojuego" disabled>
+                </div>
+                <!-- NOMBRE -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">NOMBRE</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Elden Ring, Crash Bandicoot, FIFA25"
+                        [(ngModel)]="vjuego.nombre">
+                </div>
+                <!-- GÉNERO -->
+                <div class="mb-3">
+                    <label for="genero" class="form-label">GÉNERO</label>
+                    <input type="text" class="form-control" name="genero" id="genero" placeholder="Ej. Aventura, Plataforma, Terror"
+                        [(ngModel)]="vjuego.genero">
+                </div>
+                <!-- DESARROLLADOR -->
+                <div class="mb-3">
+                    <label for="desarrollador" class="form-label">DESARROLLADOR</label>
+                    <input type="text" class="form-control" name="desarrollador" id="desarrollador" placeholder="Ej. Santa Monica, Rockstar"
+                        [(ngModel)]="vjuego.desarrollador">
+                </div>
+                <!-- PLATAFORMA -->
+                <div class="mb-3">
+                    <label for="plataforma" class="form-label">PLATAFORMA</label>
+                    <input type="text" class="form-control" name="plataforma" id="plataforma" placeholder="Ej. PC, PS5, XBOX"
+                        [(ngModel)]="vjuego.plataforma">
+                </div>
+                <!-- PRECIO -->
+                <div class="mb-3">
+                    <label for="precio" class="form-label">PRECIO</label>
+                    <input type="number" class="form-control" name="precio" id="precio" placeholder="Ej. 1000, 2999, 9755"
+                        [(ngModel)]="vjuego.precio">
+                </div>
+                <!-- CLASIFICACIÓN -->
+                <div class="mb-3">
+                    <label for="clasificacion" class="form-label">CLASIFICACIÓN</label>
+                    <input type="text" class="form-control" name="clasificacion" id="clasificacion" placeholder="Ej. E, E10+, T"
+                        [(ngModel)]="vjuego.clasificacion">
+                </div>
+                <!-- COPIAS VENDIDAS -->
+                <div class="mb-3">
+                    <label for="copiasVendidas" class="form-label">COPIAS VENDIDAS</label>
+                    <input type="number" class="form-control" name="copiasVendidas" id="copiasVendidas" placeholder="Ej. 10000, 500000, 2700000"
+                        [(ngModel)]="vjuego.copiasVendidas">
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="editarVJuego()">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

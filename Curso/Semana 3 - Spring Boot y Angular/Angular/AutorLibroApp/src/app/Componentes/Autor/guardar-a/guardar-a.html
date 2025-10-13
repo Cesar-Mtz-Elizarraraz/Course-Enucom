@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Nuevo Autor</h2>
+        </div>
+        <div class="card-body">
+            <th>Ingresa los datos del nuevo autor</th>
+            <!-- ngModel: es una directiva en ANgular que proporciona en enlace bidireccional entre elementos de un formulario HTML-->
+            <form>
+                <!-- ID -->
+                <div class="mb-3">
+                    <label for="idAutor" class="form-label">ID COMPU</label>
+                    <input type="number" class="form-control" name="idAutor" id="idAutor" placeholder="Ej. 1, 30, 2000"
+                        [(ngModel)]="autor.idAutor" disabled>
+                </div>
+                <!-- NOMBRE -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">NOMBRE</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Sergio, Camilo, Pepe"
+                        [(ngModel)]="autor.nombre">
+                </div>
+                <!-- NACIONALIDAD -->
+                <div class="mb-3">
+                    <label for="nacionalidad" class="form-label">NACIONALIDAD</label>
+                    <input type="text" class="form-control" name="nacionalidad" id="nacionalidad" placeholder="Ej. Mexicana, Rusa, Hondureño"
+                        [(ngModel)]="autor.nacionalidad">
+                </div>
+                <!-- FECHA DE NACIMIENTO -->
+                <div class="mb-3">
+                    <label for="fechaNacimiento" class="form-label">FECHA DE NACIMIENTO</label>
+                    <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" placeholder="Ej. 2001-08-30"
+                        [(ngModel)]="autor.fechaNacimiento">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="guardarA()">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

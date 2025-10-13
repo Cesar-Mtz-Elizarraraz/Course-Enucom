@@ -1,0 +1,46 @@
+<div class="form-group mb-3">
+    @if (label) {
+        <label [for]="id" class="form-label text-uppercase">{{ label }}
+        @if(required) {
+            <span class="ms-1 text-danger fw-bold">*</span>
+        }
+        </label>
+    }
+    @if (multi) {
+        <textarea 
+            [name]="name"
+            [id]="id" 
+            [placeholder]="placeholder"
+            [value]="value"
+            (input)="handleInput($event)"
+            (blur)="onTouched()"
+            [disabled]="disabled"
+            [required]="required"
+            [class]="`form-control ${errors?.length && 'border-danger shadow-danger'} ${uppercase && 'text-uppercase'}`"
+            [minLength]="minLength"
+            [maxLength]="maxLength"
+            rows="3">
+        </textarea>
+    } @else {
+        <input
+            [type]="type"
+            [name]="name"
+            [id]="id"
+            [placeholder]="placeholder"
+            [value]="value"
+            (input)="handleInput($event)"
+            (blur)="onTouched()"
+            [disabled]="disabled"
+            [required]="required"
+            [class]="`form-control ${errors?.length && 'border-danger shadow-danger'} ${uppercase && 'text-uppercase'}`"
+            [minLength]="minLength"
+            [maxLength]="maxLength"
+        />
+    }
+    
+    <ul class="ms-2 list-unstyled">
+    @for (error of errors; track error) {
+        <li class="text-danger">{{ error }}</li>
+    }
+    </ul>
+</div>

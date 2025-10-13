@@ -1,0 +1,105 @@
+@if (venta) {
+    <form>
+        <!-- ID VENTA -->
+        <div class="mb-3">
+            <label for="idVenta" class="form-label">ID VENTA</label>
+            <input type="number" class="form-control" placeholder="Ej. 1, 30, 2000" 
+                [value]="venta.idVenta" disabled>
+        </div>
+        <!-- FOLIO -->
+        <div class="mb-3">
+            <label for="folio" class="form-label">FOLIO</label>
+            <input type="text" class="form-control" name="folio" id="folio" placeholder="Ej. VTA-1, VTA-2"
+                [value]="venta.folio" disabled>
+        </div>
+        <!-- CLIENTE -->
+        <div class="mb-3">
+            <label for="clienteId" class="form-label">CLIENTE <span class="text-danger fw-bold">*</span></label>
+            <select class="form-select" name="clienteId" id="clienteId" [(ngModel)]="venta.clienteId">
+                <option value="0" selected disabled>Seleccione un cliente</option>
+                @for (cliente of clientes; track cliente.idCliente) {
+                    <option [value]="cliente.idCliente">{{ cliente.nombre + ' ' + cliente.app + ' ' + cliente.apm }}</option>
+                }
+            </select>
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.clienteId?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+        </div>
+        <!-- EMPLEADO -->
+        <div class="mb-3">
+            <label for="empleadoId" class="form-label">EMPLEADO <span class="text-danger fw-bold">*</span></label>
+            <select class="form-select" name="empleadoId" id="empleadoId" [(ngModel)]="venta.empleadoId">
+                <option value="0" selected disabled>Seleccione un empleado</option>
+                @for (empleado of empleados; track empleado.idEmpleado) {
+                    <option [value]="empleado.idEmpleado">{{ empleado.nombre + ' ' + empleado.apellido }}</option>
+                }
+            </select>
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.empleadoId?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+        </div>
+        <!-- PRODUCTO -->
+        <div class="mb-3">
+            <label for="codigoBarras" class="form-label">PRODUCTO</label>
+            <select class="form-select" name="codigoBarras" id="codigoBarras" [value]="venta.codigoBarras" disabled>
+                @for (producto of productos; track producto.codigoBarras) {
+                    <option [value]="producto.codigoBarras">{{ producto.nombre }}</option>
+                }
+            </select>
+        </div>
+        <!-- FECHA -->
+        <div class="mb-3">
+            <label for="fecha" class="form-label">FECHA <span class="text-danger fw-bold">*</span></label>
+            <input type="date" class="form-control" name="fecha" id="fecha"
+                [(ngModel)]="venta.fecha">
+                <ul class="ms-2 list-unstyled">
+                @for (error of errores?.fecha?._errors; track error) {
+                    <li class="text-danger">{{ error }}</li>
+                }
+                </ul>
+        </div>
+        <!-- CANTIDAD -->
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">CANTIDAD</label>
+            <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="Ej. 5, 10, 30"
+                [value]="venta.cantidad" disabled>
+        </div>
+        <!-- TOTAL -->
+        <div class="mb-3">
+            <label for="total" class="form-label">TOTAL</label>
+            <input type="number" class="form-control" name="total" id="total" placeholder="Ej. 10, 15, 25"
+                [value]="venta.total" disabled>
+        </div>
+        <!-- MÉTODO DE PAGO -->
+        <div class="mb-3">
+            <label for="productoId" class="form-label">MÉTODO DE PAGO <span class="text-danger fw-bold">*</span></label><br>
+            <div class="d-flex gap-3 flex-wrap">
+                <label>
+                    <input type="radio" name="metodoPago" [(ngModel)]="venta.metodoPago" value="Tarjeta" />
+                    Tarjeta
+                </label>
+                <label>
+                    <input type="radio" name="metodoPago" [(ngModel)]="venta.metodoPago" value="Efectivo" />
+                    Efectivo
+                </label>
+                <label>
+                    <input type="radio" name="metodoPago" [(ngModel)]="venta.metodoPago" value="Transferencia" />
+                    Transferencia
+                </label>
+            </div>
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.metodoPago?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+        </div>
+
+         
+    </form>
+}
+
+

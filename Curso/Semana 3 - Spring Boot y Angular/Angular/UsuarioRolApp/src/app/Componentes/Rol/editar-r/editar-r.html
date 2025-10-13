@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Editar Rol</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="text-center text-body">Ingresa los nuevos datos del rol</h5>
+            <!-- ngModel: es una directiva en ANgular que proporciona en enlace bidireccional entre elementos de un formulario HTML-->
+            <form>
+                <!-- ID -->
+                <div class="mb-3">
+                    <label for="idRol" class="form-label">ID ROL <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" name="idRol" id="idRol" placeholder="Ej. 1, 30, 2000"
+                        [(ngModel)]="rol.idRol" disabled>
+                </div>
+                <!-- PRIVILEGIO -->
+                <div class="mb-3">
+                    <label for="privilegio" class="form-label">PRIVILEGIO <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="privilegio" id="privilegio" placeholder="Ej. Administrador, Usuario, Super Administrador"
+                        [(ngModel)]="rol.privilegio">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="editarRol()">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

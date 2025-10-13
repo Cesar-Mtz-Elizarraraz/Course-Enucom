@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Nuevo Padre</h2>
+        </div>
+        <div class="card-body">
+            <th>Ingresa los datos del nuevo padre</th>
+            <!-- ngModel: es una directiva en ANgular que proporciona en enlace bidireccional entre elementos de un formulario HTML-->
+            <form>
+                <!-- ID -->
+                <div class="mb-3">
+                    <label for="idPadre" class="form-label">ID PADRE</label>
+                    <input type="number" class="form-control" name="idPadre" id="idPadre" placeholder="Ej. 1, 30, 2000"
+                        [(ngModel)]="padre.idPadre">
+                </div>
+                <!-- NOMBRE -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">NOMBRE</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Sergio, Camilo, Pepe"
+                        [(ngModel)]="padre.nombre">
+                </div>
+                <!-- APELLIDO -->
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">APELLIDO</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej. Gomez, Martinez, Mendez"
+                        [(ngModel)]="padre.apellido">
+                </div>
+                <!-- EDAD -->
+                <div class="mb-3">
+                    <label for="edad" class="form-label">EDAD</label>
+                    <input type="number" class="form-control" name="edad" id="edad" placeholder="Ej. 10, 45, 60"
+                        [(ngModel)]="padre.edad">
+                </div>
+                <!-- TRABAJO -->
+                <div class="mb-3">
+                    <label for="trabajo" class="form-label">TRABAJO</label>
+                    <input type="text" class="form-control" name="trabajo" id="trabajo" placeholder="Ej. Docente, Limpieza, Programador"
+                        [(ngModel)]="padre.trabajo">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="guardarP()">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

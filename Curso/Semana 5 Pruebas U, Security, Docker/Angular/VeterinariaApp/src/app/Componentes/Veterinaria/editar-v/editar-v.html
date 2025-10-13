@@ -1,0 +1,29 @@
+@if (veterinaria) {
+    <form>
+        <span class="text-end fw-semibold fst-italic position-absolute top-0 end-0 me-3 mt-2 badge text-bg-main rounded-pill fs-5-5">
+            VETERINARIA <fa-icon icon="hashtag"></fa-icon>{{ veterinaria.idVeterinaria }}</span>
+        <app-custom-input #nombreInput [label]="'Nombre'" [name]="form.nombre.id" [id]="form.nombre.id" [required]="true" [uppercase]="true"
+            [placeholder]="'Ej. El perro feliz'" [minLength]="1" [maxLength]="50" 
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.nombre.schema"
+            [(ngModel)]="veterinaria.nombre">
+        </app-custom-input>
+
+        <app-custom-input #direccionInput [label]="'Dirección'" [name]="form.direccion.id" [id]="form.direccion.id" [required]="true" [uppercase]="true" 
+            [placeholder]="'Estado de México, Calle Manzanario, #17...'" [minLength]="1" [maxLength]="100" [multi]="true"
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.direccion.schema"
+            [(ngModel)]="veterinaria.direccion">
+        </app-custom-input>
+
+        <app-custom-input #telefonoInput [label]="'Teléfono'" [name]="form.telefono.id" [id]="form.telefono.id" [required]="true" 
+            [placeholder]="'5519787773'" [minLength]="10" [maxLength]="10" 
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.telefono.schema"
+            [(ngModel)]="veterinaria.telefono">
+        </app-custom-input>
+    </form>
+} @else {
+    <div class="text-danger"> Error al cargar la veterinaria</div>
+}
+

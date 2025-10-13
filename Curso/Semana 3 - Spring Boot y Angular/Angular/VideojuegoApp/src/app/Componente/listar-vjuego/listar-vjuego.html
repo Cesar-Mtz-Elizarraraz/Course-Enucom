@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body">
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">GENERO</th>
+                        <th scope="col">DESARROLLADOR</th>
+                        <th scope="col">PLATAFORMA</th>
+                        <th scope="col">PRECIO</th>
+                        <th scope="col">CLASIFICACIÓN</th>
+                        <th scope="col">COPIAS VENDIDAS</th>
+                        <th scope="col">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (vjuego of vjuegos; track vjuego.idVideojuego) {
+                        <tr>
+                            <td>{{vjuego.idVideojuego}}</td>
+                            <td>{{vjuego.nombre}}</td>
+                            <td>{{vjuego.genero}}</td>
+                            <td>{{vjuego.desarrollador}}</td>
+                            <td>{{vjuego.plataforma}}</td>
+                            <td>{{vjuego.precio}}</td>
+                            <td>{{vjuego.clasificacion}}</td>
+                            <td>{{vjuego.copiasVendidas}}</td>
+                            <td>
+                               <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-danger" (click)="eliminarButton(vjuego)">ELIMINAR</button>
+                                    <button type="button" class="btn btn-warning" (click)="editarButton(vjuego)">EDITAR</button>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    }
+                    
+                    @empty {
+                        <div class="text-center">No existen registros</div>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

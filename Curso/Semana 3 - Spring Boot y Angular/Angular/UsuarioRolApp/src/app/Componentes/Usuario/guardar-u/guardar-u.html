@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Nuevo Usuario</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="text-center text-body">Ingresa los datos del nuevo usuario</h5>
+            <!-- ngModel: es una directiva en ANgular que proporciona en enlace bidireccional entre elementos de un formulario HTML-->
+            <form>
+                <!-- ID -->
+                <div class="mb-3">
+                    <label for="idUsuario" class="form-label">ID USUARIO <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" name="idUsuario" id="idUsuario" placeholder="Ej. 1, 30, 2000"
+                        [(ngModel)]="usuario.idUsuario" required>
+                </div>
+                <!-- NOMBRE -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">NOMBRE <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Sergio, Camilo, Pepe"
+                        [(ngModel)]="usuario.nombre" (input)="generarCorreo()">
+                </div>
+                <!-- APELLIDO PATERNO -->
+                <div class="mb-3">
+                    <label for="app" class="form-label">APELLIDO PATERNO <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="app" id="app" placeholder="Ej. Gomez, Martinez, Mendez"
+                        [(ngModel)]="usuario.app" (input)="generarCorreo()">
+                </div>
+                <!-- APELLIDO MATERNO -->
+                <div class="mb-3">
+                    <label for="apm" class="form-label">APELLIDO MATERNO <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="apm" id="apm" placeholder="Ej. Gomez, Martinez, Mendez"
+                        [(ngModel)]="usuario.apm">
+                </div>
+                <!-- SEXO -->
+                <div class="mb-3 d-flex gap-5">
+                    <label for="sexo1">SEXO: <span class="text-danger">*</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="sexo1" checked
+                            [(ngModel)]="usuario.sexo" value="Masculino">
+                        <label class="form-check-label" for="sexo1">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="sexo2"
+                            [(ngModel)]="usuario.sexo" value="Femenino">
+                        <label class="form-check-label" for="sexo2">
+                            Femenino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="sexo3"
+                            [(ngModel)]="usuario.sexo" value="Otro">
+                        <label class="form-check-label" for="sexo3">
+                            Otro
+                        </label>
+                    </div>
+                </div>
+                <!-- CORREO -->
+                <div class="mb-3">
+                    <label for="correo" class="form-label">CORREO <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="correo" id="correo" placeholder="Ej. example@enucom.com.mx"
+                        [(ngModel)]="usuario.correo" disabled>
+                </div>
+                <!-- FECHA DE NACIMIENTO -->
+                <div class="mb-3">
+                    <label for="fechaNacimiento" class="form-label">FECHA DE NACIMIENTO <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento"
+                        [(ngModel)]="usuario.fechaNacimiento">
+                </div>
+                <!-- ID PADRE -->
+                <div class="mb-3">
+                    <label for="padreId" class="form-label">ID PADRE</label>
+                    <input type="text" class="form-control" name="padreId" id="padreId"
+                        [(ngModel)]="identificador">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="guardarUsuario()">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

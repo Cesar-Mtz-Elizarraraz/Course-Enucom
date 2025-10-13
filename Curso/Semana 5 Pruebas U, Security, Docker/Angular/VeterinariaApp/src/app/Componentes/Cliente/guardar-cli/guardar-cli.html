@@ -1,0 +1,22 @@
+<form>
+    <app-custom-input #nombreInput [label]="'Nombre'" [name]="form.nombre.id" [id]="form.nombre.id" [required]="true" [uppercase]="true"
+        [placeholder]="'Ej. Carlos, Gilberto, Juan'" [minLength]="1" [maxLength]="50" 
+        (validationStatus)="handleValidation($event)"
+        [schema]="form.nombre.schema"
+        [(ngModel)]="cliente.nombre">
+    </app-custom-input>
+
+    <app-custom-input #direccionInput [label]="'Dirección'" [name]="form.direccion.id" [id]="form.direccion.id" [required]="true" [uppercase]="true" 
+        [placeholder]="'Estado de México, Calle Manzanario, #17...'" [minLength]="1" [maxLength]="100" [multi]="true"
+        (validationStatus)="handleValidation($event)"
+        [schema]="form.direccion.schema"
+        [(ngModel)]="cliente.direccion">
+    </app-custom-input>
+
+    <app-custom-input #contactoInput [label]="'Contacto'" [name]="form.contacto.id" [id]="form.contacto.id" [required]="true" 
+        [placeholder]="'5519787773'" [minLength]="10" [maxLength]="10" 
+        (validationStatus)="handleValidation($event)"
+        [schema]="form.contacto.schema"
+        [(ngModel)]="cliente.contacto">
+    </app-custom-input>
+</form>

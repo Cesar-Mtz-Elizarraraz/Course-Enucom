@@ -1,0 +1,58 @@
+<header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow"> 
+  <a class="navbar-brand me-0 px-3 py-3 fs-5-5 text-white fw-bold" href="home">
+    <span class="fs-5"><fa-icon [icon]="faShieldDog"></fa-icon></span> 
+    Gestión de veterinarias
+  </a>
+  <ul class="navbar-nav flex-row d-md-none">
+    <li class="nav-item text-nowrap"> 
+      <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+      aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation"><fa-icon [icon]="faBars"></fa-icon></button> 
+    </li>
+  </ul>
+</header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="sidebar col-md-3 col-lg-3 col-xl-2 bg-main fixed-sm-top rounded-end-4">
+      <div class="offcanvas-md offcanvas-end bg-main h-100 pb-md-0 pb-sm-3 rounded-start-4" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+          <div class="navbar-brand me-0 py-3 fs-5-5 text-white fw-bold"><span class="fs-5"><fa-icon [icon]="faShieldDog"></fa-icon></span> Gestión de veterinarias</div>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto h-100">
+          <div class="d-flex flex-column justify-content-between h-100">
+            <div>
+              <ul class="nav flex-column fs-5-5">
+                <li class="nav-item"> 
+                  <a id="vHome" class="nav-link d-flex align-items-center gap-2 link-light rounded link-opacity-50-hover" aria-current="page" href="home"><fa-icon [icon]="faHouse"></fa-icon> Inicio</a>
+                </li>
+                <li class="nav-item"> 
+                  <a id="vVeterinaria" class="nav-link d-flex align-items-center gap-2 link-light rounded link-opacity-50-hover" aria-current="page" href="veterinaria"><fa-icon [icon]="faHouseMedical"></fa-icon> Veterinarias</a>
+                </li>
+                <li class="nav-item"> 
+                  <a id="vCliente" class="nav-link d-flex align-items-center gap-2 link-light rounded link-opacity-50-hover" aria-current="page" href="cliente"><fa-icon [icon]="faUser"></fa-icon> Clientes</a>
+                </li>
+                <li class="nav-item"> 
+                  <a id="vResponsable" class="nav-link d-flex align-items-center gap-2 link-light rounded link-opacity-50-hover" aria-current="page" href="responsable"><fa-icon [icon]="faUserDoctor"></fa-icon> Responsables</a>
+                </li>
+                <li class="nav-item"> 
+                  <a id="vMascota" class="nav-link d-flex align-items-center gap-2 link-light rounded link-opacity-50-hover" aria-current="page" href="mascota"><fa-icon [icon]="faDog"></fa-icon> Mascotas</a>
+                </li>
+              </ul>
+            </div>
+            <div class="text-center">
+              <hr class="my-3 text-light">
+              <span class="text-light text-sm">2025 <fa-icon [icon]="faCopyright"></fa-icon> CMME</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <main class=" ms-sm-auto col-md-9 col-lg-9 col-xl-10 px-md-4">
+      <div class="container">
+        <router-outlet />
+      </div>
+    </main>
+  </div>
+</div>
+

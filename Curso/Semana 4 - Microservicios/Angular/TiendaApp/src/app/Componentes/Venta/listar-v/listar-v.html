@@ -1,0 +1,66 @@
+<div class="d-flex">
+  <div class="d-flex flex-shrink-0 p-3" style="width: 280px; height: 100vh;"></div>
+    <div class="container py-4 d-flex gap-4 flex-column">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2><fa-icon [icon]="faCircleDollarToSlot" /> VENTAS</h2>
+            <a href="guardarVenta" class="btn btn-primary">REGISTRAR</a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table id="miTabla" class="table text-center m-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Folio</th>
+                            <th>Cliente</th>
+                            <th>Empleado</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Método de pago</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (venta of ventas; track venta.idVenta) {
+                            <tr>
+                                <th>{{venta.idVenta}}</th>
+                                <th>{{venta.folio}}</th>
+                                <td>{{venta.cliente?.nombre || "Sin cliente"}}</td>
+                                <td>{{venta.empleado?.nombre || "Sin empleado"}}</td>
+                                <td>{{venta.producto?.nombre || "Sin producto"}}</td>
+                                <td>{{venta.cantidad}}</td>
+                                <td>${{venta.total.toFixed(2)}}</td>
+                                <td>{{venta.metodoPago}}</td>
+                                 <td>{{venta.fecha}}</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn btn-danger" (click)="eliminarVenta(venta)"><fa-icon [icon]="faTrasCan" /> ELIMINAR</button>
+                                        <button type="button" class="btn btn-warning" (click)="openEditarModal(contentE, venta)"><fa-icon [icon]="faPen" /> EDITAR</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        
+                        @empty {
+                            <div class="text-center">No existen registros</div>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <ng-template #contentE let-modal>
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="mEditarVentaLabel"><fa-icon [icon]="faPen" /> Editar Venta</h1>
+            <button type="button" class="btn-close" (click)="closeEditarModal()"></button>
+        </div>
+        <div class="modal-body">
+        <app-editar-v [venta]="ventaEditar" #editarVComponent></app-editar-v>
+        </div>
+        <div class="modal-footer p-0 border-0">
+            <button type="button" class="btn btn-success m-0 w-100 rounded-0 rounded-bottom-1 fw-bold" (click)="editarVComponent.editarVenta()">ACEPTAR</button>
+        </div>
+    </ng-template>
+</div>

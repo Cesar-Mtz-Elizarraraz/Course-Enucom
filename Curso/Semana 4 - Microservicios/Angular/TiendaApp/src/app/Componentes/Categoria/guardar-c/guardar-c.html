@@ -1,0 +1,30 @@
+<form>
+    <!-- ID -->
+    <div class="mb-3 d-none">
+        <label for="idPadre" class="form-label">ID CATEGORÍA</label>
+        <input type="number" class="form-control" name="idPadre" id="idPadre" placeholder="Ej. 1, 30, 2000"
+            [(ngModel)]="categoria.idCategoria">
+    </div>
+    <!-- NOMBRE -->
+    <div class="mb-3">
+        <label for="nombre" class="form-label">NOMBRE <span class="text-danger fw-bold">*</span></label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Alimentos, Bebidas, Frutas y verduras" min="1" max="100"
+            [(ngModel)]="categoria.nombre">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.nombre?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- DESCRIPCIÓN -->
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">DESCRIPCIÓN  <span class="text-danger fw-bold">*</span></label>
+        <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Ej. Descripción de la categoría" min="1" max="255" rows="4"
+            [(ngModel)]="categoria.descripcion"></textarea>
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.descripcion?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+</form>

@@ -1,0 +1,50 @@
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>HIJOS</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container py-5">
+		<div class="card">
+			<div class="card-header"> 
+				<div class="d-flex justify-content-between align-items-center">
+					<h2>Guardar Hijo</h2>
+					<a class="btn btn-outline-dark" th:href="@{/hijo}">Principal</a>
+				</div>
+			</div>
+			<div class="card-body">
+				<form th:object="${hijo}" method="post" th:action="@{/hijo/guardarH}">
+					<div class="mb-3">
+						<label for="idHijo">ID HIJO</label>
+						<input class="form-control" type="number" name="idHijo" min="1" th:field="*{idHijo}" />
+					</div>
+					<div class="mb-3">
+						<label for="nombre">NOMBRE</label>
+						<input class="form-control" type="text" name="nombre" min="1" th:field="*{nombre}" />
+					</div>
+					<div class="mb-3">
+						<label for="apellido">APELLIDO</label>
+						<input class="form-control" type="text" name="apellido" min="1" th:field="*{apellido}" />
+					</div>
+					<div class="mb-3">
+						<label for="edad">EDAD</label>
+						<input class="form-control" type="number" name="edad" min="1" th:field="*{edad}" />
+					</div>
+					<div class="mb-3">
+						<label for="hobbie">HOBBIE</label>
+						<input class="form-control" type="text" name="hobbie" min="1" th:field="*{hobbie}" />
+					</div>
+					<div class="mb-3">
+						<label for="padreId">PADRE ID</label>
+						<input class="form-control" type="number" name="padreId" min="1" th:field="*{padreId}" />
+					</div>
+					<div class="text-center">
+						<input class="btn btn-success w-25 fw-bold" type="submit" name="guardar" value="GUARDAR" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

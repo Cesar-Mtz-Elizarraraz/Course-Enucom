@@ -1,0 +1,41 @@
+<div class="bg-white dark:bg-gray-900 text-black dark:text-white w-screen h-screen">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold pt-3">Registrar Operación</h1>
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-3">
+                <label for="cliente" class="block text-lg font-medium text-white">Cliente</label>
+                <div class="mt-2">
+                    <input id="cliente" type="text" name="cliente" autocomplete="given-name" class="block w-full py-2 rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" 
+                    [(ngModel)]="operacion.cliente" />
+                </div>
+            </div>
+            <div class="sm:col-span-3">
+                <label for="operacion" class="block text-lg font-medium text-white">Operación</label>
+                <div class="mt-2">
+                    <select id="operacion" name="operacion" class="px-3 py-2 w-full border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    [(ngModel)]="operacion.operacion">
+                        <option value="" disabled>-- Selecciona --</option>
+                        <option value="deposito">Depósito</option>
+                        <option value="retiro">Retiro</option>
+                        <option value="transferencia">Transferencia</option>
+                        <option value="consulta">Consulta de saldo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="sm:col-span-3">
+                <label for="importe" class="block text-lg font-medium text-white">Importe</label>
+                <div class="mt-2">
+                    <input id="importe" type="number" name="importe" step="0.01" class="block w-full py-2 rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" 
+                    [(ngModel)]="operacion.importe" />
+                </div>
+            </div>
+            
+        </div>
+        <div class="d-flex justify-center align-center" style="display: flex;">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3" (click)="guardarOperacion()">
+                GUARDAR
+            </button>
+        </div>
+        
+    </div>
+</div>

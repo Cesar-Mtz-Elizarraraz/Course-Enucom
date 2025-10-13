@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>COMPUTADORAS</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">MARCA</th>
+                        <th scope="col">MODELO</th>
+                        <th scope="col">PROCESADOR</th>
+                        <th scope="col">RAM</th>
+                        <th scope="col">CAPACIDAD</th>
+                        <th scope="col">COLOR</th>
+                        <th scope="col">PRECIO</th>
+                        <th scope="col">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (compu of compus; track compu.idCompu) {
+                        <tr>
+                            <td>{{compu.idCompu}}</td>
+                            <td>{{compu.marca}}</td>
+                            <td>{{compu.modelo}}</td>
+                            <td>{{compu.procesador}}</td>
+                            <td>{{compu.ram}}</td>
+                            <td>{{compu.capacidad}}</td>
+                            <td>{{compu.color}}</td>
+                            <td>{{compu.precio}}</td>
+                            <td>
+                               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn btn-danger" (click)="eliminarButton(compu)">ELIMINAR</button>
+                                    <button type="button" class="btn btn-warning" (click)="editarButton(compu)">EDITAR</button>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    }
+                    
+                    @empty {
+                        <div class="text-center">No existen registros</div>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="form-group mb-3">
+    @if (label) {
+        <label [for]="id" class="form-label text-uppercase">{{ label }}
+        @if(required) {
+            <span class="ms-1 text-danger fw-bold">*</span>
+        }
+        </label>
+    }
+    @if(options.length){
+        <div class="input-group">
+            @if(iconLeft){
+                <span class="input-group-text"><fa-icon [icon]="iconLeft" /></span>
+            }
+            <select
+                #selectElement
+                [name]="name"
+                [id]="id"
+                [value]="value"
+                (change)="handleSelected(selectElement.value)"
+                [disabled]="!options.length ? true : disabled"
+                [required]="required"
+                [class]="`form-select ${errors?.length && 'border-danger shadow-danger'}`"
+            >
+                @if(options.length){
+                    <option [value]="" [disabled]="required">{{ defaultOption }}</option>
+                    @for (option of options; track option.value) {
+                        <option [value]="option.value" [selected]="value == option.value">{{ option.label }}</option>
+                    } 
+                } 
+            </select>
+            @if(iconRight){
+                <span class="input-group-text"><fa-icon [icon]="iconRight" /></span>
+            }
+        </div>
+    } @else {
+        <div class="text-center">
+            <span class="badge rounded-pill text-bg-danger fs-5-5">{{ defaultEmpty }}</span>
+        </div>
+        
+    }
+    
+    
+    <ul class="ms-2 list-unstyled">
+    @for (error of errors; track error) {
+        <li class="text-danger">{{ error }}</li>
+    }
+    </ul>
+</div>

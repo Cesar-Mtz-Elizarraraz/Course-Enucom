@@ -1,0 +1,70 @@
+<div class="d-flex">
+    <div class="d-flex flex-shrink-0 p-3" style="width: 280px; height: 100vh;"></div>
+    <div class="container py-4 d-flex gap-4 flex-column">
+        <div class="d-flex justify-content-between">
+            <h2><fa-icon [icon]="faUsers" /> CLIENTES</h2>
+            <button type="button" class="btn btn-primary" (click)="openGuardarModal(contentG)">REGISTRAR</button>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table id="miTabla" class="table text-center m-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Teléfono</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (cliente of clientes; track cliente.idCliente) {
+                            <tr>
+                                <th>{{cliente.idCliente}}</th>
+                                <td>{{cliente.nombre}}</td>
+                                <td>{{cliente.app}}</td>
+                                <td>{{cliente.apm}}</td>
+                                <td>{{cliente.telefono}}</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn btn-danger" (click)="eliminarCliente(cliente)"><fa-icon [icon]="faTrasCan" /> ELIMINAR</button>
+                                        <button type="button" class="btn btn-warning" (click)="openEditarModal(contentE, cliente)"><fa-icon [icon]="faPen" /> EDITAR</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        
+                        @empty {
+                            <div class="text-center">No existen registros</div>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <ng-template #contentG let-modal>
+        <div class="modal-header">
+            <h1 class="modal-title fs-5"><fa-icon [icon]="faPlus" /> Nuevo Cliente</h1>
+            <button type="button" class="btn-close" (click)="closeGuardarModal()"></button>
+        </div>
+        <div class="modal-body">
+            <app-guardar-cli #guardarEComponent></app-guardar-cli>
+        </div>
+        <div class="modal-footer p-0 border-0">
+            <button type="button" class="btn btn-success m-0 w-100 rounded-0 rounded-bottom-1 fw-bold" (click)="guardarEComponent.guardarCliente()">ACEPTAR</button>
+        </div>
+    </ng-template>
+    <ng-template #contentE let-modal>
+        <div class="modal-header">
+            <h1 class="modal-title fs-5"><fa-icon [icon]="faPen" /> Editar Cliente</h1>
+            <button type="button" class="btn-close" (click)="closeEditarModal()"></button>
+        </div>
+        <div class="modal-body">
+            <app-editar-cli [cliente]="clienteEditar" #editarEComponent></app-editar-cli>
+        </div>
+        <div class="modal-footer p-0 border-0">
+            <button type="button" class="btn btn-success m-0 w-100 rounded-0 rounded-bottom-1 fw-bold" (click)="editarEComponent.editarCliente()">ACEPTAR</button>
+        </div>
+    </ng-template>
+</div>

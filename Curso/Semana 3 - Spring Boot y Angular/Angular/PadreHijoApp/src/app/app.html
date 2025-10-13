@@ -1,0 +1,36 @@
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Padre - Hijo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor04">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Padre</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="listarP">Listar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="guardarP">Guardar</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hijo</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="listarH">Listar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="guardarH">Guardar</a>
+          </div>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<router-outlet />

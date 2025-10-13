@@ -1,0 +1,52 @@
+@if (mascota) {
+    <form>
+        <span class="text-end fw-semibold fst-italic position-absolute top-0 end-0 me-3 mt-2 badge text-bg-main rounded-pill fs-5-5">
+            MASCOTA <fa-icon icon="hashtag"></fa-icon>{{ mascota.idMascota }}
+        </span>
+        <app-custom-input #nombreInput [label]="'Nombre'" [name]="form.nombre.id" [id]="form.nombre.id" [required]="true" [uppercase]="true"
+            [placeholder]="'Ej. Firulais, Manchas, Pelusa'" [minLength]="1" [maxLength]="15" 
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.nombre.schema"
+            [(ngModel)]="mascota.nombre">
+        </app-custom-input>
+        <app-custom-input #razaInput [label]="'Raza'" [name]="form.raza.id" [id]="form.raza.id" [required]="true" [uppercase]="true"
+            [placeholder]="'Ej. Pit Bull, Siamés, Chihuahua'" [minLength]="1" [maxLength]="15" 
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.raza.schema"
+            [(ngModel)]="mascota.raza">
+        </app-custom-input>
+        <app-custom-input #edadInput [label]="'Edad'" [name]="form.edad.id" [id]="form.edad.id" [required]="true" [uppercase]="true"
+            [placeholder]="'Ej. 0, 10, 15'" [minLength]="1" [maxLength]="2" 
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.edad.schema"
+            [(ngModel)]="mascota.edad">
+        </app-custom-input>
+        <app-custom-input #razonCitaInput [label]="'Razón de cita'" [name]="form.razonCita.id" [id]="form.razonCita.id" [required]="true" [uppercase]="true" [multi]="true"
+            [placeholder]="'Ej. Se enfermo, Necesita operación'" [minLength]="1" [maxLength]="100" 
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.razonCita.schema"
+            [(ngModel)]="mascota.razonCita">
+        </app-custom-input>
+
+        <app-custom-select #clienteIdSelect [label]="'Cliente'" [name]="form.clienteId.id" [id]="form.clienteId.id" [required]="true" 
+            [defaultOption]="'- Selecciona un cliente -'"
+            [options]="clienteOptions"
+            [defaultEmpty]="'Sin clientes registrados'"
+            [iconLeft]="'user'"
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.clienteId.schema"
+            [(ngModel)]="mascota.clienteId">  
+        </app-custom-select>
+        <app-custom-select #responsableIdSelect [label]="'Responsable'" [name]="form.responsableId.id" [id]="form.responsableId.id" [required]="true" 
+            [defaultOption]="'- Selecciona un responsable -'"
+            [options]="responsableOptions"
+            [defaultEmpty]="'Sin responsables registrados'"
+            [iconLeft]="'user-doctor'"
+            (validationStatus)="handleValidation($event)"
+            [schema]="form.responsableId.schema"
+            [(ngModel)]="mascota.responsableId">  
+        </app-custom-select>
+    </form>
+} @else {
+    <div class="text-danger"> Error al cargar el responsable</div>
+}

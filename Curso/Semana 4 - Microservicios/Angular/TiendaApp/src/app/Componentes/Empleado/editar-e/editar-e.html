@@ -1,0 +1,52 @@
+<form>
+    <!-- ID -->
+    <div class="mb-3">
+        <label for="idPadre" class="form-label">ID EMPLEADO</label>
+        <input type="number" class="form-control" name="idPadre" id="idPadre" placeholder="Ej. 1, 30, 2000"
+            [value]="empleado.idEmpleado" disabled>
+    </div>
+    <!-- NOMBRE -->
+    <div class="mb-3">
+        <label for="nombre" class="form-label">NOMBRE <span class="text-danger fw-bold">*</span></label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Carlos, Gilberto, Juan" min="1" max="100"
+            [(ngModel)]="empleado.nombre">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.nombre?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- APELLIDO -->
+    <div class="mb-3">
+        <label for="apellido" class="form-label">APELLIDO <span class="text-danger fw-bold">*</span></label>
+        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej. Mendez, Jimenez, Lopez" min="1" max="150"
+            [(ngModel)]="empleado.apellido">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.apellido?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- TELÉFONO -->
+    <div class="mb-3">
+        <label for="telefono" class="form-label">TELÉFONO <span class="text-danger fw-bold">*</span></label>
+        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Ej. 5519787773" min="1000000000" max="9999999999"
+            [(ngModel)]="empleado.telefono">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.telefono?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- PUESTO -->
+    <div class="mb-3">
+        <label for="puesto" class="form-label">PUESTO <span class="text-danger fw-bold">*</span></label>
+        <input type="text" class="form-control" name="puesto" id="puesto" placeholder="Ej. Limpieza, Desarrollador, RH" min="1" max="100"
+            [(ngModel)]="empleado.puesto">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.puesto?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+.fixed-sm-top{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding-top: 8.1vh;
+  padding-bottom: 2vh;
+}
+
+.fs-5-5{
+    font-size: 1.1rem;
+}
+
+@media (min-width: 992px) {
+  .fixed-sm-top {
+    padding-top: 6vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .fixed-sm-top {
+    position: inherit;
+    padding: 0;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Editar Libro</h2>
+        </div>
+        <div class="card-body">
+            <th>Ingresa los nuevos datos del libro</th>
+            <!-- ngModel: es una directiva en ANgular que proporciona en enlace bidireccional entre elementos de un formulario HTML-->
+            <form>
+                <!-- ID -->
+                <div class="mb-3">
+                    <label for="idLibro" class="form-label">ID LIBRO</label>
+                    <input type="number" class="form-control" name="idLibro" id="idLibro" placeholder="Ej. 1, 30, 2000"
+                        [(ngModel)]="libro.idLibro">
+                </div>
+                <!-- TITULO -->
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">TÍTULO</label>
+                    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Ej. Sergio, Camilo, Pepe"
+                        [(ngModel)]="libro.titulo">
+                </div>
+                <!-- GÉNERO -->
+                <div class="mb-3">
+                    <label for="genero" class="form-label">GÉNERO</label>
+                    <input type="text" class="form-control" name="genero" id="genero" placeholder="Ej. Gomez, Martinez, Mendez"
+                        [(ngModel)]="libro.genero">
+                </div>
+                <!-- AÑO DE PUBLICACIÓN -->
+                <div class="mb-3">
+                    <label for="anioPublicacion" class="form-label">AÑO DE PUBLICACIÓN</label>
+                    <input type="number" class="form-control" name="anioPublicacion" id="anioPublicacion" placeholder="Ej. 10, 45, 60"
+                        [(ngModel)]="libro.anioPublicacion">
+                </div>
+                <!-- PRECIO -->
+                <div class="mb-3">
+                    <label for="precio" class="form-label">PRECIO</label>
+                    <input type="number" class="form-control" name="precio" id="precio" placeholder="Ej. Docente, Limpieza, Programador"
+                        [(ngModel)]="libro.precio">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="editarLibro()">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

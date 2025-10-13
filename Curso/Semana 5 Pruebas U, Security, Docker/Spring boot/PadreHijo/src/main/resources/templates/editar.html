@@ -1,0 +1,46 @@
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>PADRES</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header"> 
+				<h2>Editar información de padre</h2>
+			</div>
+			<div>
+				<a class="btn btn-outline-dark" th:href="@{/}">Principal</a>
+			</div>
+			<div class="card-body">
+				<form th:object="${padre}" method="post" th:action="@{/editar}">
+					<div class="mb-3">
+						<label for="idPadre">ID PADRE</label>
+						<input class="form-control" type="number" name="idPadre" min="1" th:field="*{idPadre}" />
+					</div>
+					<div class="mb-3">
+						<label for="nombre">NOMBRE</label>
+						<input class="form-control" type="text" name="nombre" min="1" th:field="*{nombre}" />
+					</div>
+					<div class="mb-3">
+						<label for="apellido">APELLIDO</label>
+						<input class="form-control" type="text" name="apellido" min="1" th:field="*{apellido}" />
+					</div>
+					<div class="mb-3">
+						<label for="edad">EDAD</label>
+						<input class="form-control" type="number" name="edad" min="1" th:field="*{edad}" />
+					</div>
+					<div class="mb-3">
+						<label for="trabajo">TRABAJO</label>
+						<input class="form-control" type="text" name="trabajo" min="1" th:field="*{trabajo}" />
+					</div>
+					<div>
+						<input class="btn btn-success" type="submit" name="guardar" value="GUARDAR" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

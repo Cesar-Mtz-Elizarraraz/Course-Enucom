@@ -1,0 +1,83 @@
+<form>
+    <!-- CÓDIGO DE BARRAS -->
+    <div class="mb-3">
+        <label for="codigoBarras" class="form-label">CÓDIGO DE BARRAS <span class="text-danger fw-bold">*</span></label>
+        <input type="number" class="form-control" name="codigoBarras" id="codigoBarras" placeholder="Ej. 1, 30, 2000" min="10000000" max="99999999999999"
+            [(ngModel)]="producto.codigoBarras">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.codigoBarras?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- NOMBRE -->
+    <div class="mb-3">
+        <label for="nombre" class="form-label">NOMBRE <span class="text-danger fw-bold">*</span></label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Sabritas, Azúcar, Refresco" min="1" max="120"
+            [(ngModel)]="producto.nombre">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.nombre?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- PRECIO -->
+    <div class="mb-3">
+        <label for="precio" class="form-label">PRECIO <span class="text-danger fw-bold">*</span></label>
+        <div class="input-group">
+            <span class="input-group-text fw-semibold">$</span>
+            <input type="number" class="form-control" name="precio" id="precio" placeholder="Ej. 10, 50, 45.50" step="0.01" min="0.01" max="1000000" 
+            [(ngModel)]="producto.precio">
+        </div>
+        <ul class="ms-2 list-unstyled">
+        @for (error of errores?.precio?._errors; track error) {
+            <li class="text-danger">{{ error }}</li>
+        }
+        </ul>
+    </div>
+    <!-- STOCK -->
+    <div class="mb-3">
+        <label for="stock" class="form-label">STOCK <span class="text-danger fw-bold">*</span></label>
+        <input type="number" class="form-control" name="stock" id="stock" placeholder="Ej. 5, 10, 30" min="0" max="1000000"
+            [(ngModel)]="producto.stock">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.stock?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- DESCUENTO -->
+    <div class="mb-3">
+        <label for="descuento" class="form-label">DESCUENTO</label>
+        <div class="input-group">
+            <input type="number" class="form-control" name="descuento" id="descuento" placeholder="Ej. 10, 15, 25" min="0" max="100" value="0"
+            [(ngModel)]="producto.descuento">
+             <span class="input-group-text fw-semibold">%</span>
+        </div>
+        <ul class="ms-2 list-unstyled">
+        @for (error of errores?.descuento?._errors; track error) {
+            <li class="text-danger">{{ error }}</li>
+        }
+        </ul>
+    </div>
+    <!-- CATEGORÍA -->
+    <div class="mb-3">
+        <label for="categoriaId" class="form-label">CATEGORÍA</label>
+        <select class="form-select" name="categoriaId" id="categoriaId" [(ngModel)]="idCat">
+            <option value="0" selected>Seleccione una categoría</option>
+            @for (categoria of categorias; track categoria.idCategoria) {
+                <option [value]="categoria.idCategoria">{{ categoria.nombre }}</option>
+            }
+        </select>
+    </div>
+    <!-- PROVEEDOR -->
+    <div class="mb-3">
+        <label for="proveedorId" class="form-label">PROVEEDOR</label>
+        <select class="form-select" name="proveedorId" id="proveedorId" [(ngModel)]="idProv">
+            <option value="0" selected>Seleccione un proveedor</option>
+            @for (proveedor of proveedores; track proveedor.idProveedor) {
+                <option [value]="proveedor.idProveedor">{{ proveedor.nombre }}</option>
+            }
+        </select>
+    </div>
+</form>

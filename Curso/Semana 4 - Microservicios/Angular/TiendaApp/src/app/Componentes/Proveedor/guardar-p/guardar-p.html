@@ -1,0 +1,41 @@
+<form>
+    <!-- ID -->
+    <div class="mb-3 d-none">
+        <label for="idProveedor" class="form-label">ID PROVEEDOR</label>
+        <input type="number" class="form-control" name="idProveedor" id="idProveedor" placeholder="Ej. 1, 30, 2000"
+            [(ngModel)]="proveedor.idProveedor">
+    </div>
+    <!-- NOMBRE -->
+    <div class="mb-3">
+        <label for="nombre" class="form-label">NOMBRE <span class="text-danger fw-bold">*</span></label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej. Sergio, Camilo, Pepe" min="1" max="255"
+            [(ngModel)]="proveedor.nombre">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.nombre?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- TELÉFONO -->
+    <div class="mb-3">
+        <label for="telefono" class="form-label">TELÉFONO <span class="text-danger fw-bold">*</span></label>
+        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Ej. 5518936473" min="1000000000" max="9999999999"
+            [(ngModel)]="proveedor.telefono">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.telefono?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+    <!-- EMAIL -->
+    <div class="mb-3">
+        <label for="email" class="form-label">EMAIL <span class="text-danger fw-bold">*</span></label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Ej. example@gmail.com" min="1" max="100"
+            [(ngModel)]="proveedor.email">
+            <ul class="ms-2 list-unstyled">
+            @for (error of errores?.email?._errors; track error) {
+                <li class="text-danger">{{ error }}</li>
+            }
+            </ul>
+    </div>
+</form>

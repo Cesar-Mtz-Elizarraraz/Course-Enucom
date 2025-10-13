@@ -1,0 +1,58 @@
+
+<div class="d-flex flex-column flex-shrink-0 p-3 text-light" style="width: 280px; height: 100vh; position: fixed; background-color: #183153;">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <fa-icon [icon]="faStore" size="2x" class="text-light" />
+    <span class="ms-2 fs-4 text-light">La tiendita</span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="home" id="vHome" class="nav-link text-light link-secondary" aria-current="page">
+        <fa-icon [icon]="faHome" />
+        Inicio
+      </a>
+    </li>
+    <li>
+      <a href="proveedor" id="vProveedor" class="nav-link text-light link-secondary">
+        <fa-icon [icon]="faUserTie" />
+        Proveedores
+      </a>
+    </li>
+    <li>
+      <a href="producto" id="vProducto" class="nav-link text-light link-secondary">
+        <fa-icon [icon]="faBagShopping" />
+        Productos
+      </a>
+    </li>
+    <li>
+      <a href="empleado" id="vEmpleado" class="nav-link text-light link-secondary">
+        <fa-icon [icon]="faUser" />
+        Empleados
+      </a>
+    </li>
+    <li>
+      <a href="cliente" id="vCliente" class="nav-link text-light link-secondary">
+        <fa-icon [icon]="faUsers" />
+        Clientes
+      </a>
+    </li>
+    <li>
+      <a href="categoria" id="vCategoria" class="nav-link text-light link-secondary">
+        <fa-icon [icon]="faTags" />
+        Categorías
+      </a>
+    </li>
+    <li>
+      <a href="venta" id="vVenta" class="nav-link text-light link-secondary">
+        <fa-icon [icon]="faCircleDollarToSlot" />
+        Ventas
+      </a>
+    </li>
+  </ul>
+  <hr>
+  <div class="text-center">
+    <span>2025 © CMME</span>
+  </div>
+</div>
+
+<router-outlet />

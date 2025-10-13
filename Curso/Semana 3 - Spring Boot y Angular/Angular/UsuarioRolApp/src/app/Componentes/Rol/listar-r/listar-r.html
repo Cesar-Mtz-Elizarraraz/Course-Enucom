@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>ROLES</h2>
+        </div>
+        <div class="card-body text-center">
+            <table class="table table-ligth table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">PRIVILEGIO</th>
+                        <th scope="col">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (rol of roles; track rol.idRol) {
+                        <tr>
+                            <td>{{rol.idRol}}</td>
+                            <td>{{rol.privilegio}}</td>
+                            <td>
+                               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn btn-danger" (click)="eliminarButton(rol)"><fa-icon [icon]="faTrashCan" /> ELIMINAR</button>
+                                    <button type="button" class="btn btn-warning" (click)="editarButton(rol)"><fa-icon [icon]="faPen" /> EDITAR</button>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    }
+                    
+                    @empty {
+                        <div class="text-center">No existen registros</div>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

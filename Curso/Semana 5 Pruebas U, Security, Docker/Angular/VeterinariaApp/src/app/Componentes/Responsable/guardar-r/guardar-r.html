@@ -1,0 +1,24 @@
+<form>
+    <app-custom-input #nombreInput [label]="'Nombre'" [name]="form.nombre.id" [id]="form.nombre.id" [required]="true" [uppercase]="true"
+        [placeholder]="'Ej. Carlos, Gilberto, Juan'" [minLength]="1" [maxLength]="50" 
+        (validationStatus)="handleValidation($event)"
+        [schema]="form.nombre.schema"
+        [(ngModel)]="responsable.nombre">
+    </app-custom-input>
+
+    <app-custom-input #contactoInput [label]="'Contacto'" [name]="form.contacto.id" [id]="form.contacto.id" [required]="true" 
+        [placeholder]="'5519787773'" [minLength]="10" [maxLength]="10" 
+        (validationStatus)="handleValidation($event)"
+        [schema]="form.contacto.schema"
+        [(ngModel)]="responsable.contacto">
+    </app-custom-input>
+    <app-custom-select #veterinariaIdSelect [label]="'Veterinaria'" [name]="form.veterinariaId.id" [id]="form.veterinariaId.id" [required]="true" 
+        [defaultOption]="'- Selecciona una veterinaria -'"
+        [options]="veterinariaOptions"
+        [defaultEmpty]="'Sin veterinarias registradas'"
+        [iconLeft]="'house-medical'"
+        (validationStatus)="handleValidation($event)"
+        [schema]="form.veterinariaId.schema"
+        [(ngModel)]="responsable.veterinariaId">  
+    </app-custom-select>
+</form>
